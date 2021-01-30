@@ -10,11 +10,11 @@ Conceitos estudados nesse projeto:
 - Definindo as entidades
 - Corrupção no código
 - SOLID e Clean Code
-- Primitive Obsession
+- Primitive Obsession: termo usado para classificar o desenvolvimento que é baseado apenas nos tipos primitivos da linguagem (string, int, decimal, DateTime, etc)
 - Value Objects
 - Compartilhando informações entre contextos delimitados
 - Testando as entidades e VOs
-- Commands
+- Commands: Uso de CQRS (Command Query Responsibility Segregation), utilizado para separar a responsabilidade de escrita e leitura de seus dados.
 - Fail Fast Validations
 - Repository Pattern
 - Handlers
