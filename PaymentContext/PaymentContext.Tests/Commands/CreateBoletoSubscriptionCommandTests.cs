@@ -9,7 +9,7 @@ namespace PaymentContext.Tests.ValueObjects
     {
         // Exemplo de teste de commands
         [Fact]
-        public void ShouldReturnErrorWhenNameIsInvalid(string cnpj)
+        public void ShouldReturnErrorWhenNameIsInvalid()
         {
             var command = new CreateBoletoSubscriptionCommand();
             command.FirstName = "";
