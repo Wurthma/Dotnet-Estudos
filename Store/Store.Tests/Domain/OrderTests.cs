@@ -28,7 +28,7 @@ namespace Store.Tests.Domain
         public void Dado_um_novo_pedido_seu_status_deve_ser_aguardando_pagamento()
         {
             var order = new Order(_customer, 0, null);
-            Assert.Equal(order.Status, EOrderStatus.WaitingPayment);
+            Assert.Equal(EOrderStatus.WaitingPayment, order.Status);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Store.Tests.Domain
             var order = new Order(_customer, 0, null);
             order.AddItem(_product, 1); // Total deve ser 10
             order.Pay(10);
-            Assert.Equal(order.Status, EOrderStatus.WaitingDelivery);
+            Assert.Equal(EOrderStatus.WaitingDelivery, order.Status);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 0, null);
             order.Cancel();
-            Assert.Equal(order.Status, EOrderStatus.Canceled);
+            Assert.Equal(EOrderStatus.Canceled, order.Status);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 0, null);
             order.AddItem(null, 10);
-            Assert.Equal(order.Items.Count, 0);
+            Assert.Equal(0, order.Items.Count);
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 0, null);
             order.AddItem(_product, 0);
-            Assert.Equal(order.Items.Count, 0);
+            Assert.Equal(0, order.Items.Count);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 10, _discount);
             order.AddItem(_product, 5);
-            Assert.Equal(order.Total(), 50);
+            Assert.Equal(50, order.Total());
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace Store.Tests.Domain
             var expiredDiscount = new Discount(10, DateTime.Now.AddDays(-5)); // desconto expirado, não deve descontar os 10
             var order = new Order(_customer, 10, expiredDiscount); // Pedido com entrega no valor de 10
             order.AddItem(_product, 5); // _product.Price = 10 * 5 = 50 + 10 (entrega) = 60
-            Assert.Equal(order.Total(), 60);
+            Assert.Equal(60, order.Total());
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 10, null);
             order.AddItem(_product, 5); 
-            Assert.Equal(order.Total(), 60);
+            Assert.Equal(60, order.Total());
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 10, _discount);
             order.AddItem(_product, 5);
-            Assert.Equal(order.Total(), 50);
+            Assert.Equal(50, order.Total());
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace Store.Tests.Domain
         {
             var order = new Order(_customer, 10, _discount);
             order.AddItem(_product, 6);
-            Assert.Equal(order.Total(), 60);
+            Assert.Equal(60, order.Total());
         }
 
         [Fact]
