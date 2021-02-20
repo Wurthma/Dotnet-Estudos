@@ -1,9 +1,23 @@
 # Theads, ThreadPool e Tasks
 
-Qual a diferença entre Threads e Tasks?
+Ambas executam processos de forma paralela usando os nucles disponíveis no processador.
+
+No projeto Exemplos01 há exemplos de execução básica usando `Theads`, `ThreadPool` e `Tasks` (opção 1) e podemos observar a diferença de exeução de um processo sem paralelismo e com paralelismo.
+
+> Neste exemplo você irá observar que com paralelismo temos uma execução mais rápida, mas tenha em mente que cenários mais complexos podem não ter o mesmo resultado.
+
+Dê sempre preferência para o uso de Task, pois é um nível de abstração mais alto e o sistema controla a maior parte das decisões de controle.
+
+## Qual a diferença entre Threads e Tasks?
 
 ### Theads:
 Thread é um conceito de baixo nível (te da um controle maior sobre as threads, e isso na maiorida das vezes é dispensável): se você está iniciando um thread diretamente, sabe que será um thread separado, em vez de executar no pool de threads.
+
+#### Task.ContinueWith
+
+`Task.ContinueWith` é usado para definir uma ordem de passos que são dependentes e que só serão completados após a execução do passo anterior.
+Exemplo:
+
 
 ### ThreadPool
 

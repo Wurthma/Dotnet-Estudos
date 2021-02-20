@@ -26,5 +26,18 @@ namespace Exemplos01
 
             return sum;
         }
+
+        public int DoWork3(int value)
+        {
+            int sum = 0;
+            for(int i = 0; i < 12; i++){
+                Thread.Sleep(55);
+                Console.Write(i);
+                Console.Write(", ");
+                sum += i;
+            }
+
+            return sum + value;
+        }
     }
 }

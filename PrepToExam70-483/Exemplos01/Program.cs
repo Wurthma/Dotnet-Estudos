@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,17 +10,106 @@ namespace Exemplos01
     {
         static void Main(string[] args)
         {
+            ShowMenuSamples();
+        }
+        
+        private static void ShowMenuSamples()
+        {
+            Console.Clear();
+            Console.WriteLine("1- Execução básica de processos com Thread, ThreadPool e Tasks");
+            Console.WriteLine("2- Thread ContinueWith");
+            Console.WriteLine("3- Executando uma lista de tasks");
+
+            string option = Console.ReadKey().KeyChar.ToString();
+             switch(option)
+             {
+                 case "1":
+                    Option1();
+                    break;
+                 case "2":
+                    Option2();
+                    break;
+                 case "3":
+                    Option3();
+                    break;
+                default:
+                    return;
+             }
+        }
+
+        private static void Option1()
+        {
             // Execução sem paralelismo
             ExecuteWork();
 
             //Utilizando threads:
             ExecuteWorkWithThread();
+
+            //Utilizando threadPool:
+            ExecuteWorkWithThreadPool();
             
             // Utilizando tasks:
             ExecuteWorkWithTask_Type1(); 
             ExecuteWorkWithTask_Type2();
             ExecuteWorkWithTask_Type3();
 
+            Console.ReadKey();
+        }
+
+        private static void Option2()
+        {
+            Work work = new Work();
+            
+            // Execução de exemplo onde uma ordem de passos deve ser seguida
+            // Exemplos com 3 passos: passo1 (DoWork), passo2 (DoWork2) e passo3 (DoWork3)
+            
+            // 1
+            Task passo1 = Task.Factory.StartNew(() =>{
+                work.DoWork();
+            });
+
+            // 2
+            int resultValue = 0;
+            Task passo2 = passo1.ContinueWith((value) => {
+                resultValue = work.DoWork2();
+            });
+
+            int resultadoFinal = 0;
+            Task passo3 = passo1.ContinueWith((value) => {
+                resultadoFinal = resultValue = work.DoWork3(resultValue);
+            });
+
+            while(true)
+            { // Aguarda conclusão
+                if(passo3.Status == TaskStatus.RanToCompletion)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"Resultado final = {resultadoFinal}");
+                    Console.ReadKey();
+                    return;
+                }
+            }
+        }
+
+        private static void Option3()
+        {
+            Work work = new Work();
+            Task[] tasks = new Task[3]
+            {
+                Task.Factory.StartNew(() => {
+                    work.DoWork();
+                }),
+                Task.Factory.StartNew(() => {
+                    work.DoWork2();
+                }),
+                Task.Factory.StartNew(() => {
+                    work.DoWork3(5);
+                })
+            };
+
+            Task.WaitAll(tasks);
+            Console.WriteLine();
+            Console.WriteLine("Finalizado!");
             Console.ReadKey();
         }
 
@@ -69,6 +159,38 @@ namespace Exemplos01
                     return;
                 }
             }
+        }
+        
+        private static void ExecuteWorkWithThreadPool()
+        {
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Executando trabalho com ThreadPool");
+            Work work = new Work();
+            var stopwatch = new Stopwatch();
+            
+            stopwatch.Start();
+            var events = new List<ManualResetEvent>();
+            ManualResetEvent resetEvent = new ManualResetEvent(false); // usado para controlar o término da execução
+            ThreadPool.QueueUserWorkItem(state => { 
+                work.DoWork(); 
+                resetEvent.Set();
+            });
+            events.Add(resetEvent);
+
+            int result = 0;
+            ManualResetEvent resetEvent2 = new ManualResetEvent(false);
+            ThreadPool.QueueUserWorkItem(state => {
+                result = work.DoWork2();
+                resetEvent2.Set();
+            });
+            events.Add(resetEvent2);
+
+            WaitHandle.WaitAll(events.ToArray()); // Espera por todos eventos do 'List<ManualResetEvent> events'
+
+            stopwatch.Stop();
+            Console.WriteLine();
+            Console.WriteLine($"Trabalhos finalizados em {stopwatch.Elapsed.TotalSeconds} segundos");
+            Console.WriteLine($"Resultado do trabalho 2 = {result}");
         }
 
         private static void ExecuteWorkWithTask_Type1()
