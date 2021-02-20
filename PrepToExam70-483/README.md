@@ -10,14 +10,13 @@
 - Conceitos avançados de classes e métodos
 - Declarações de decisão e iteração
 
-### Exemplos
+### Exemplos Exemplos01/
 - IDisposable
 - ICloneable
 - IEquatable
 - IComparer
 - EventLog / TraceSource
-- Thread / ThreadPool
-- Task / Async / Sync
+- [Thread, ThreadPool, Task, Async, Sync, Await, etc](/Exemplos01 "Thread, ThreadPool, Task, Async, Sync, Await, etc") 
 - Cancelation Token
 - Parallel.ForEach / AsParallel()
 - Delegates
