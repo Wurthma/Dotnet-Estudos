@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Exemplos01
 {
     public class Work
     {
+        public Work(){}
+
         public void DoWork()
         {
             for(int i = 0; i < 10; i++){
@@ -58,6 +63,47 @@ namespace Exemplos01
             }
 
             return true;
+        }
+
+        private List<Guid> GenerateResults()
+        {
+            List<Guid> listResults = new List<Guid>();
+            for(int i = 0; i <= 100; i++)
+            {
+                listResults.Add(Guid.NewGuid());
+            }
+            return listResults;
+        }
+        
+        public void ProcessResultsParallel()
+        {
+            var listResults = GenerateResults();
+
+            // Caso queira controlar quantidade de Threads (entre outras opções) - Exemplo completo no readme.md
+            // ParallelOptions op = new ParallelOptions();
+            // op.MaxDegreeOfParallelism = 10;
+
+            Parallel.ForEach(listResults, item => {
+                ProcessResult(item);
+            });
+
+            Console.WriteLine();
+        }
+
+        public void ProcessResults()
+        {
+            var listResults = GenerateResults();
+            foreach(var item in listResults)
+                ProcessResult(item);
+
+            Console.WriteLine();
+        }
+
+        private void ProcessResult(Guid result)
+        {
+            // Processar alguma coisa
+            Thread.Sleep(50);
+            Console.WriteLine($"{result.ToString()} - Thread ID: {Thread.CurrentThread.ManagedThreadId}");
         }
     }
 }

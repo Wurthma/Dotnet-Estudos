@@ -36,6 +36,41 @@ No exemplo da opção 4 é possível verificar um exemplo do uso do async/await.
 
 > Notar que aplicações do tipo console precisam fazer o uso do `Wait` então não é possível no console continuar usando o mesmo enquanto a tarefa está em execução, consultar exemplos de aplicações web para verificar o comportamento de retorno do async/await.
 
+## Parallel
+
+Parallel é usado para realizar a execução paralela de tipode derivados de `IEnumerable`. No código há um exemplo de uso do `Parallel.ForEach` (Exemplo da opção 5), no entanto é possível também usar o `Parallel.For`. 
+
+Estudar também `AsParallel(IEnumerable)` do `System.Linq`.
+Exemplo de uso:
+
+```csharp
+var listResults = GenerateResults();
+var result = listResults.AsParallel().Where(x.ToString() == "Texto");
+```
+
+### O Exemplo Parallel:
+No exemplo citado da opção 5 a mesma simulação de execução é realizada, sendo uma delas usando o método `ProcessResults` e a outro a método paralelo `ProcessResultsParallel`. Podemos observar que o método paralelo, executa muito mais rápido e faz uso de diversas Threads durante sua execução para possibilitar o paralelismo.
+
+No exemplo deixamos o controle de quantidade de Threads com o sistema (não definido manualmente), mas podemos fazer o controle utilizando o `ParallelOptions`.
+
+O método alterado, para controlar a quantidade de Threads, ficaria assim:
+
+```csharp
+public void ProcessResultsParallel()
+{
+    var listResults = GenerateResults();
+
+    ParallelOptions op = new ParallelOptions();
+    op.MaxDegreeOfParallelism = 10;
+
+    Parallel.ForEach(listResults, op, item => {
+        ProcessResult(item);
+    });
+}
+```
+
+O `CancellationToken` também pode ser controlado pelo `ParallelOptions` para realizar o cancelamento do processo.
+
 ### Características:
 
 - Uma task pode ter multiplos processamentos acontecendo ao mesmo tempo. Threads podem ter uma única execução por vez.

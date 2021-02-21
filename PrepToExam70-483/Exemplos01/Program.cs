@@ -24,7 +24,8 @@ namespace Exemplos01
             Console.WriteLine("1- Execução básica de processos com Thread, ThreadPool e Tasks");
             Console.WriteLine("2- Thread ContinueWith");
             Console.WriteLine("3- Executando uma lista de tasks");
-            Console.WriteLine("4- Tasks async");
+            Console.WriteLine("4- Exemplo de uso do Tasks/async/await");
+            Console.WriteLine("5- Exemplo de uso do Parallel");
 
             string option = Console.ReadKey().KeyChar.ToString();
             switch(option)
@@ -40,6 +41,9 @@ namespace Exemplos01
                     break;
                 case "4":
                     await Option4();
+                    break;
+                case "5":
+                    Option5();
                     break;
                 default:
                     return;
@@ -149,6 +153,29 @@ namespace Exemplos01
                 Console.WriteLine("Tarefa em execução");
             }
         }
+        
+        private static void Option5()
+        {
+            Work work = new Work();
+            
+            var stopwatch = new Stopwatch();
+            
+            stopwatch.Start();
+            work.ProcessResults();
+            stopwatch.Stop();
+            Console.WriteLine();
+            Console.WriteLine($"Execução não paralela terminada em {stopwatch.Elapsed.TotalSeconds} segundos");
+            Console.WriteLine();
+
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
+            work.ProcessResultsParallel();
+            stopwatch.Stop();
+            Console.WriteLine();
+            Console.WriteLine($"Execução paralela terminada em {stopwatch.Elapsed.TotalSeconds} segundos");
+            Console.WriteLine();
+        }
+        
         private static void ExecuteWork()
         {
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
