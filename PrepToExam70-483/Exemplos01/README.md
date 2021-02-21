@@ -1,5 +1,8 @@
 # Theads, ThreadPool e Tasks
 
+Exemplos mais avançados no [projeto de exemplo referente ao vídeo do IAmTimCorey](../01_AdvancedAsyncSourceCode "projeto de exemplo referente ao vídeo do IAmTimCorey").
+
+
 Ambas executam processos de forma paralela usando os nucles disponíveis no processador.
 
 No projeto Exemplos01 há exemplos de execução básica usando `Theads`, `ThreadPool` e `Tasks` (opção 1) e podemos observar a diferença de exeução de um processo sem paralelismo e com paralelismo.
@@ -76,3 +79,11 @@ O `CancellationToken` também pode ser controlado pelo `ParallelOptions` para re
 - Uma task pode ter multiplos processamentos acontecendo ao mesmo tempo. Threads podem ter uma única execução por vez.
 - Tasks suportam cancelamento de execução usando o cancellation tokens. Com Thread não é possível fazer esse cancelamento.
 - Uma Task é um conceito de nível mais alto do que Thread.
+
+### Fontes:
+
+- https://youtu.be/2moh18sh5p4
+- https://youtu.be/ZTKGRJy5P2M
+- https://youtu.be/e-5o3ZBWg9Q
+
+Exemplos mais avançados no [projeto de exemplo referente ao vídeo do IAmTimCorey](../01_AdvancedAsyncSourceCode "projeto de exemplo referente ao vídeo do IAmTimCorey").
