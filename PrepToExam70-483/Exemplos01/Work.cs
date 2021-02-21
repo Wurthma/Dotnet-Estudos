@@ -39,5 +39,25 @@ namespace Exemplos01
 
             return sum + value;
         }
+
+        public void DoWork4()
+        {
+            for(int i = 0; i < 10; i++){
+                Thread.Sleep(120);
+                Console.Write(i);
+                Console.Write(", ");
+            }
+        }
+
+        public bool DoLongWork()
+        {
+            int sum = 0;
+            for(int i = 0; i < 10; i++){
+                Thread.Sleep(2000);
+                sum += i;
+            }
+
+            return true;
+        }
     }
 }

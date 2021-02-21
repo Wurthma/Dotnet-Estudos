@@ -10,31 +10,40 @@ namespace Exemplos01
     {
         static void Main(string[] args)
         {
-            ShowMenuSamples();
+            MainAsync(args).Wait();
+        }
+
+        static async Task MainAsync(string[] args)
+        {
+            await ShowMenuSamples();
         }
         
-        private static void ShowMenuSamples()
+        private static async Task ShowMenuSamples()
         {
             Console.Clear();
             Console.WriteLine("1- Execução básica de processos com Thread, ThreadPool e Tasks");
             Console.WriteLine("2- Thread ContinueWith");
             Console.WriteLine("3- Executando uma lista de tasks");
+            Console.WriteLine("4- Tasks async");
 
             string option = Console.ReadKey().KeyChar.ToString();
-             switch(option)
-             {
-                 case "1":
+            switch(option)
+            {
+                case "1":
                     Option1();
                     break;
-                 case "2":
+                case "2":
                     Option2();
                     break;
-                 case "3":
+                case "3":
                     Option3();
+                    break;
+                case "4":
+                    await Option4();
                     break;
                 default:
                     return;
-             }
+            }
         }
 
         private static void Option1()
@@ -113,6 +122,33 @@ namespace Exemplos01
             Console.ReadKey();
         }
 
+        private static async Task Option4()
+        {
+            Work work = new Work();
+            Console.WriteLine();
+
+            // Executando outras tarefas em paralelo...
+            Task task1 = Task.Factory.StartNew(() =>{
+                work.DoWork4();
+            });
+            Task task2 = Task.Factory.StartNew(() =>{
+                work.DoWork4();
+            });
+
+            var task = await ExecuteWorkWithTaskAsync();
+            
+            if(task)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Concluído! Programa finalizado...");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Tarefa em execução");
+            }
+        }
         private static void ExecuteWork()
         {
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
@@ -268,6 +304,14 @@ namespace Exemplos01
                     return;
                 }
             }
+        }
+
+        private static async Task<bool> ExecuteWorkWithTaskAsync()
+        {
+            Work work = new Work();
+            return await Task.Run(() => {
+                return work.DoLongWork();
+            });
         }
     }
 }

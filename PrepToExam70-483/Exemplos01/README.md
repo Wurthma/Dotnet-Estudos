@@ -28,6 +28,14 @@ ThreadPool é um invólucro em torno de um pool de threads mantido pelo CLR. Thr
 É uma abstração acima dos Threads. Ele usa o pool de threads (ThreadPool) (a menos que você especifique a tarefa como uma operação LongRunning; nesse caso, um novo thread é criado sob o capô para você).
 Task é mais do que apenas uma abstração de "onde executar algum código" - é apenas "a promessa de um resultado no futuro".
 
+#### Async/Await
+
+Async faz com que determinado método funcione de forma assíncrona, ou seja, ele rodará em background e durante esse processo outras tarefas podem ser realizadas, diferente de métodos síncronos que precisam necessariamente ser finalizados antes de outras tarefas serem iniciadas.
+
+No exemplo da opção 4 é possível verificar um exemplo do uso do async/await.
+
+> Notar que aplicações do tipo console precisam fazer o uso do `Wait` então não é possível no console continuar usando o mesmo enquanto a tarefa está em execução, consultar exemplos de aplicações web para verificar o comportamento de retorno do async/await.
+
 ### Características:
 
 - Uma task pode ter multiplos processamentos acontecendo ao mesmo tempo. Threads podem ter uma única execução por vez.
