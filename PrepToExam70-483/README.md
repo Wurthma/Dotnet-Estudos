@@ -17,7 +17,7 @@
 - IComparer
 - EventLog / TraceSource
 - [Thread, ThreadPool, Task, Async, Sync, Await, Cancelation Token, etc](/PrepToExam70-483/Exemplos01 "Thread, ThreadPool, Task, Async, Sync, Await, etc") 
-- [Parallel.ForEach, Parallel.For, AsParallel()](/PrepToExam70-483/Exemplos01 "Parallel.ForEach, Parallel.For, AsParallel()") 
+- [Parallel.ForEach, Parallel.For, AsParallel()](/PrepToExam70-483/Exemplos01#parallel "Parallel.ForEach, Parallel.For, AsParallel()") 
 - Delegates
 - LINQ
 - List, IList, ICollection, etc
