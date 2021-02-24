@@ -11,17 +11,14 @@
 - Declarações de decisão e iteração
 
 ### Exemplos
-- IDisposable
-- ICloneable
-- IEquatable
-- IComparer
-- EventLog / TraceSource
+- Interfaces: IDisposable, ICloneable, IEquatable, IComparer
+- EventLog e TraceSource
 - [Thread, ThreadPool, Task, Async, Sync, Await, Cancelation Token, etc](/PrepToExam70-483/Exemplos01 "Thread, ThreadPool, Task, Async, Sync, Await, etc") 
 - [Parallel.ForEach, Parallel.For, AsParallel()](/PrepToExam70-483/Exemplos01#parallel "Parallel.ForEach, Parallel.For, AsParallel()") 
 - Delegates
 - LINQ
 - List, IList, ICollection, etc
-- try / catch / finally
+- try, catch, finally
 - Arrays
 - Disctionary
 - Hashtable
@@ -29,9 +26,6 @@
 - Queue
 - Types
 - Generics
-- Constructor / private constructor
-- Sobrecarga
-- OOP
 - Encryptions: symmetric encryption, asymmetric encryption, Hashing
 - Compiler directives
 - Reading streams
