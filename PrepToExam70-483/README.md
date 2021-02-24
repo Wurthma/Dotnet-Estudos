@@ -22,8 +22,7 @@
 - Arrays
 - Disctionary
 - Hashtable
-- Stack
-- Queue
+- Stack e Queue
 - Types
 - Generics
 - Encryptions: symmetric encryption, asymmetric encryption, Hashing
