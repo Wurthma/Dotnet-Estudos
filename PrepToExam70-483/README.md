@@ -23,7 +23,6 @@
 - Disctionary
 - Hashtable
 - Stack e Queue
-- Types
 - Generics
 - Encryptions: symmetric encryption, asymmetric encryption, Hashing
 - Compiler directives
