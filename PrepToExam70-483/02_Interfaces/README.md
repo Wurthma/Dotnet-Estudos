@@ -26,7 +26,21 @@ Uma implementação do método Clone pode executar uma cópia profunda ou uma c�
 Em uma cópia profunda, todos os objetos são duplicados;
 Em uma cópia superficial, apenas os objetos de nível superior são duplicados e os níveis inferiores contêm referências.
 
-Exemplo prático do `ICloneable` no código fonte do arquivo [CloneableExample.cs](./CloneableExample.cs "CloneableExample.cs").
+Exemplo prático do `ICloneable` no código fonte do arquivo [Pessoa.cs](./CloneableExample.cs "Pessoa.cs").
+
+## IEquatable
+
+- Documentação oficial: https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1.equals?view=net-5.0
+
+`IEquatable` implementa o método `public bool Equals (T? other);` com o objetivo de comparar o objeto de origem com o objeto de destino `T`.
+
+Exemplo prático do `IEquatable` no código fonte do arquivo [Pessoa.cs](./CloneableExample.cs "Pessoa.cs").
+
+## IComparer e IComparable
+
+- Documentação oficial: https://docs.microsoft.com/pt-br/troubleshoot/dotnet/csharp/use-icomparable-icomparer
+
+
 
 Fontes: 
 - http://www.macoratti.net/19/05/c_iclone1.htm

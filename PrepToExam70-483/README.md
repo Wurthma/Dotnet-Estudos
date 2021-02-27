@@ -11,7 +11,7 @@
 - Declarações de decisão e iteração
 
 ### Exemplos
-- Interfaces: IDisposable, ICloneable, IEquatable, IComparer
+- [Interfaces: IDisposable, ICloneable, IEquatable, IComparer e IComparable](/PrepToExam70-483/02_Interfaces "Interfaces: IDisposable, ICloneable, IEquatable, IComparer e IComparable") 
 - EventLog e TraceSource
 - [Thread, ThreadPool, Task, Async, Sync, Await, Cancelation Token, etc](/PrepToExam70-483/01_Exemplos "Thread, ThreadPool, Task, Async, Sync, Await, etc") 
 - [Parallel.ForEach, Parallel.For, AsParallel()](/PrepToExam70-483/01_Exemplos#parallel "Parallel.ForEach, Parallel.For, AsParallel()") 

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace _02_Interfaces
 {
-    public class Pessoa : ICloneable
+    public class Pessoa : ICloneable, IEquatable<Pessoa>
     {
         public string Nome { get; set; }
         public int Idade { get; set; }
@@ -18,5 +18,8 @@ namespace _02_Interfaces
         {
             return new Pessoa(this);
         }
+
+        public bool Equals(Pessoa other) => 
+            other.Nome == this.Nome && other.Idade == this.Idade;
     }
 }
