@@ -10,18 +10,13 @@ namespace _03_Delegates.Models
         
         public List<ProductModel> Items { get; set; } = new List<ProductModel>();
 
-        public decimal GenerateTotal(MentionDiscount mentionDiscount) // recebe o delegate
+        public decimal GenerateTotal(MentionDiscount mentionDiscount, Func<List<ProductModel>, decimal, decimal> calculateDiscountTotal)
         {
             decimal subTotal = Items.Sum(x => x.Price);
             
             mentionDiscount(subTotal); // O método atribuído ao delegate será chamado aqui...
 
-            if (subTotal > 40)
-            {
-                subTotal *= 0.90M;
-            }
-
-            return subTotal;
+            return calculateDiscountTotal(Items, subTotal);
         }
     }
 }
