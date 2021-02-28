@@ -11,7 +11,23 @@ namespace _03_Delegates
         static void Main(string[] args)
         {
             PopulateCartWithData();
-            Console.WriteLine($"O total da sua compra é: {cart.GenerateTotal(SubTotalAlert, CalculateLeveledDiscount):C2}");
+
+            Console.WriteLine();
+            Console.WriteLine($"O total da sua compra é: {cart.GenerateTotal(SubTotalAlert, CalculateLeveledDiscount, AlertUser):C2}");
+            Console.WriteLine();
+
+            // Exemplo 2 para chamadas do delegate:
+            cart.GenerateTotal(
+                (subTotal) => Console.WriteLine($"O total da sua segunda compra é: {subTotal:C2}"),
+                (products, subTotal) => {
+                    if (subTotal > 100)
+                    {
+                        return subTotal * 0.95M;
+                    }
+                    return subTotal;
+                },
+                (message) => { } // fazer nada para a ação da mensagem
+            );
         }
 
         private static void SubTotalAlert(decimal subTotal)
@@ -31,6 +47,11 @@ namespace _03_Delegates
             }
 
             return subTotal;
+        }
+
+        private static void AlertUser(string message)
+        {
+            Console.WriteLine(message);
         }
 
         private static void PopulateCartWithData()

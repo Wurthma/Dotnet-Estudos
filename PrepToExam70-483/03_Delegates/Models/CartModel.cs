@@ -6,15 +6,17 @@ namespace _03_Delegates.Models
 {
     public class CartModel
     {
-        public delegate void MentionDiscount(decimal subTotal); // definição de um delegate
+        public delegate void MentionSubtotal(decimal subTotal); // definição de um delegate
         
         public List<ProductModel> Items { get; set; } = new List<ProductModel>();
 
-        public decimal GenerateTotal(MentionDiscount mentionDiscount, Func<List<ProductModel>, decimal, decimal> calculateDiscountTotal)
+        public decimal GenerateTotal(MentionSubtotal mentionSubtotal, Func<List<ProductModel>, decimal, decimal> calculateDiscountTotal, Action<string> mentionDiscounting)
         {
             decimal subTotal = Items.Sum(x => x.Price);
             
-            mentionDiscount(subTotal); // O método atribuído ao delegate será chamado aqui...
+            mentionSubtotal(subTotal);
+
+            mentionDiscounting("Estamos aplicando o seu desconto...");
 
             return calculateDiscountTotal(Items, subTotal);
         }

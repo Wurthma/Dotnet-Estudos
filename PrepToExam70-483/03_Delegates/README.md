@@ -50,3 +50,5 @@ Abaixo exemplo da chamada para o método `GenerateTotal` da classe `CartModel`:
 ```csharp
 cart.GenerateTotal(SubTotalAlert);
 ```
+
+Mais exemplos podem ser vistos no projeto. Acesse [Program.cs](/PrepToExam70-483/03_Delegates "Program.cs") para analisar os exemplos o baixe o projeto para mais detalhes.
