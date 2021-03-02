@@ -17,15 +17,13 @@
 - [Delegates](/PrepToExam70-483/03_Delegates "Delegates")
 - [Events](/PrepToExam70-483/04_Events "Events")
 - [Yield](/PrepToExam70-483/05_Yield "Yield")
-- Generics
-- LINQ
-- List, IList, ICollection, etc
-- try, catch, finally
-- Arrays
+- List, IList, ICollection, Arrays, etc
 - Disctionary
+- Generics
+- try, catch, finally
+- LINQ
 - Hashtable
 - Stack e Queue
-
 - Encryptions: symmetric encryption, asymmetric encryption, Hashing
 - Compiler directives
 - Reading streams

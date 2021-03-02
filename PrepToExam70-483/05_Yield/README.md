@@ -27,7 +27,7 @@ O método de exemplo acima pode ser refatorado usando yield return conforme exem
 
 ```csharp
 public static IEnumerable<int> Potencia(int numero, int exponente)
-{ // Esse método é equivalente ao método PotenciaSemYield
+{
     int resultado = 1;
     for (int i = 0; i < exponente; i++)
     {
@@ -36,3 +36,8 @@ public static IEnumerable<int> Potencia(int numero, int exponente)
     }
 }
 ```
+
+### Fontes
+
+- http://www.macoratti.net/17/02/cshp_yield1.htm
+- https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/keywords/yield
