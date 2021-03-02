@@ -16,7 +16,8 @@
 - [Parallel.ForEach, Parallel.For, AsParallel()](/PrepToExam70-483/01_Exemplos#parallel "Parallel.ForEach, Parallel.For, AsParallel()") 
 - [Delegates](/PrepToExam70-483/03_Delegates "Delegates")
 - [Events](/PrepToExam70-483/04_Events "Events")
-- Yield
+- [Yield](/PrepToExam70-483/05_Yield "Yield")
+- Generics
 - LINQ
 - List, IList, ICollection, etc
 - try, catch, finally
@@ -24,7 +25,7 @@
 - Disctionary
 - Hashtable
 - Stack e Queue
-- Generics
+
 - Encryptions: symmetric encryption, asymmetric encryption, Hashing
 - Compiler directives
 - Reading streams
