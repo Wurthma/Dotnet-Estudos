@@ -1,6 +1,6 @@
 # Yield
 
-Quando você usa a palavra-chave `yield` em uma instrução, você indica que o método, operador ou acessador get em que ela é exibida é um iterador. Usar yield para definir um iterador elimina a necessidade de uma classe adicional explícita (`IEnumerator<T>`) ao implementar o padrão `IEnumerable` e `IEnumerator` para um tipo de coleção personalizado.
+Quando você usa a palavra-chave `yield` em uma instrução, você indica que o método, operador ou acessor get em que ela é exibida é um iterador. Usar yield para definir um iterador elimina a necessidade de uma classe adicional explícita (`IEnumerator<T>`) ao implementar o padrão `IEnumerable` e `IEnumerator` para um tipo de coleção personalizado.
 
 ## Exemplo
 
