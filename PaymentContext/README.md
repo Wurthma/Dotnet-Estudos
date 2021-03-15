@@ -1,7 +1,5 @@
 # Modelagem de domínio rico C#
 
-Conceitos estudados nesse projeto:
-
 - Domínios ricos
 - Linguagem obíquoa
 - Sub domínios
