@@ -37,4 +37,4 @@ O "listener" define o comportamento do evento. Quando um evento tiver seu gatilh
 
 ## EventArgs
 
-Para um exemplo de classe que faz herença do `EventArgs`, acessar o arquivo [OverdraftEventArgs.cs](/PrepToExam70-483/04_Events/DemoLibrary/OverdraftEventArgs.cs "OverdraftEventArgs.cs").
+Para um exemplo de classe que faz herança do `EventArgs`, acessar o arquivo [OverdraftEventArgs.cs](/PrepToExam70-483/04_Events/DemoLibrary/OverdraftEventArgs.cs "OverdraftEventArgs.cs").

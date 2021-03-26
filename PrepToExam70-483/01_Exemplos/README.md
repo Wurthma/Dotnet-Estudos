@@ -5,7 +5,7 @@ Exemplos mais avançados no [projeto de exemplo referente ao vídeo do IAmTimCor
 
 Ambas executam processos de forma paralela usando os nucles disponíveis no processador.
 
-No projeto Exemplos01 há exemplos de execução básica usando `Theads`, `ThreadPool` e `Tasks` (opção 1) e podemos observar a diferença de exeução de um processo sem paralelismo e com paralelismo.
+No projeto Exemplos01 há exemplos de execução básica usando `Theads`, `ThreadPool` e `Tasks` (opção 1) e podemos observar a diferença de execução de um processo sem paralelismo e com paralelismo.
 
 > Neste exemplo você irá observar que com paralelismo temos uma execução mais rápida, mas tenha em mente que cenários mais complexos podem não ter o mesmo resultado.
 
@@ -41,7 +41,7 @@ No exemplo da opção 4 é possível verificar um exemplo do uso do async/await.
 
 ## Parallel
 
-Parallel é usado para realizar a execução paralela de tipode derivados de `IEnumerable`. No código há um exemplo de uso do `Parallel.ForEach` (Exemplo da opção 5), no entanto é possível também usar o `Parallel.For`. 
+Parallel é usado para realizar a execução paralela de tipo de derivados de `IEnumerable`. No código há um exemplo de uso do `Parallel.ForEach` (Exemplo da opção 5), no entanto é possível também usar o `Parallel.For`. 
 
 Estudar também `AsParallel(IEnumerable)` do `System.Linq`.
 Exemplo de uso:
@@ -76,7 +76,7 @@ O `CancellationToken` também pode ser controlado pelo `ParallelOptions` para re
 
 ### Características:
 
-- Uma task pode ter multiplos processamentos acontecendo ao mesmo tempo. Threads podem ter uma única execução por vez.
+- Uma task pode ter múltiplos processamentos acontecendo ao mesmo tempo. Threads podem ter uma única execução por vez.
 - Tasks suportam cancelamento de execução usando o cancellation tokens. Com Thread não é possível fazer esse cancelamento.
 - Uma Task é um conceito de nível mais alto do que Thread.
 
