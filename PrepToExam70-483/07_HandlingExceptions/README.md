@@ -17,3 +17,4 @@ Tratamento de exceção tem como objetivo, como o nome já entrega, o tratamento
 - Os tratamentos de exceção devem ser feitos de preferência no nível mais alto da aplicação.
 - O `StackTrace` original da exceção pode ser mantido usando o apenas `throw`.
 - Ao usar o `throw ex` "jogando" a exceção capturada, o `StackTrace` original ficará no `InnerException`.
+- Podemos usar vários `catchs` para tratar diferentes tipos de exceções.
