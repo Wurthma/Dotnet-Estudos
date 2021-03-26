@@ -18,7 +18,7 @@
 - [Events](/PrepToExam70-483/04_Events "Events")
 - [Yield](/PrepToExam70-483/05_Yield "Yield")
 - [Generics](/PrepToExam70-483/06_Generics "Generics")
-- try, catch, finally
+- [try, catch, finally](/PrepToExam70-483/07_HandlingExceptions "try, catch, finally")
 - LINQ
 - Hashtable
 - Stack e Queue
